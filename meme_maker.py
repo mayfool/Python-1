@@ -15,7 +15,7 @@ def input_par():
 
 
 def main():
-    path_to_image = sys.argv[1]
+    path_to_image = "file";
     image_file = Image.open(path_to_image + '.jpg')
     image_file = image_file.convert("RGBA")
     pixdata = image_file.load()
@@ -23,18 +23,18 @@ def main():
     print(image_file.size)
     text, size, color_value = input_par()
 
-    font = ImageFont.truetype("C:\\Windows\\Fonts\\Arial.ttf", size=size)
+    font = ImageFont.truetype("C:\\Windows\\Fonts\\ARIALN.ttf", size=size)
 
     # Clean the background noise, if color != white, then set to black.
     # change with your color
     for y in range(100):
         for x in range(100):
             pixdata[x, y] = (255, 255, 255, 255)
-    image_file.show()
+    #image_file.show()
 
     # Drawing text on the picture
     draw = ImageDraw.Draw(image_file)
-    draw.text((0, 2300), text, (color_value[0], color_value[1], color_value[2]), font=font)
+    draw.text((50, 50), text, (color_value[0], color_value[1], color_value[2]),font=font)
     draw = ImageDraw.Draw(image_file)
 
     print('Enter the file name: ')
